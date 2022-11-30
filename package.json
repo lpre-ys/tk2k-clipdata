@@ -1,0 +1,24 @@
+{
+  "name": "tk2k-clipdata",
+  "version": "1.0.0",
+  "description": "Clipboard read/write library for RPG Maker 2000.",
+  "main": "index.js",
+  "scripts": {
+    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --watchAll"
+  },
+  "author": "lpre_ys",
+  "license": "MIT",
+  "type": "module",
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
+    "@types/jest": "^29.2.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.28.0",
+    "eslint-plugin-jest": "^27.1.6",
+    "jest": "^29.3.1"
+  },
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  }
+}

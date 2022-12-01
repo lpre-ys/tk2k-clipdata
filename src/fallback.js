@@ -1,11 +1,12 @@
 import { spawn } from "child_process";
+import path from "path";
 
 export function readFallback(id) {
   return new Promise((resolve, reject) => {
     const child = spawn("powershell.exe", [
       "-ExecutionPolicy",
       "RemoteSigned",
-      "./fallback/read.ps1",
+      path.resolve(__dirname, "fallback/read.ps1"),
       id
     ]);
 
@@ -38,7 +39,7 @@ export function writeFallback(id, data) {
     const child = spawn("powershell.exe", [
       "-ExecutionPolicy",
       "RemoteSigned",
-      "./fallback/write.ps1",
+      path.resolve(__dirname, "fallback/write.ps1"),
       id,
       `"${data.join(',')}"`
     ]);

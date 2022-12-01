@@ -1,6 +1,7 @@
 import { buildRawData } from "./builder.js";
 import { readFallback, writeFallback } from "./fallback.js";
 import { parseRaw } from "./parser.js";
+import * as parser from "./parser.js";
 import config from "./config.json";
 
 export async function read(id) {
@@ -18,6 +19,8 @@ export function makePair(type, target, value) {
   const header = getHeader(type);
   return { no: header[target], data: value };
 }
+
+export { parser };
 
 // ID list
 export const tk2k = {};

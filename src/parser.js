@@ -1,5 +1,5 @@
 import { berToIntData } from "./ber.js";
-import config from "./config.json" assert {type: 'json'};
+import config from "./config.json";
 
 const HEADER_LENGTH = 8;
 

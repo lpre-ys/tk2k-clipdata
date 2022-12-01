@@ -1,7 +1,7 @@
-import { buildRawData } from "./src/builder.js";
-import { readFallback, writeFallback } from "./src/fallback.js";
-import { parseRaw } from "./src/parser.js";
-import config from "./src/config.json" assert {type: 'json'};
+import { buildRawData } from "./builder.js";
+import { readFallback, writeFallback } from "./fallback.js";
+import { parseRaw } from "./parser.js";
+import config from "./config.json";
 
 export async function read(id) {
   const raw = await readFallback(id);

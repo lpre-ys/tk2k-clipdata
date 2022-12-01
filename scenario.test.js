@@ -1,16 +1,16 @@
 import { jest } from "@jest/globals";
+import { makePair, read, tk2k, write } from "./src";
+import { readFallback, writeFallback } from "./src/fallback";
 import { parseList, parseBer, parseString } from "./src/parser";
 import testdata from "./testdata.json";
 
-jest.unstable_mockModule("./src/fallback", () => {
+jest.mock("./src/fallback", () => {
   return {
     __esModule: true,
     readFallback: jest.fn(),
     writeFallback: jest.fn(),
   };
 });
-const { readFallback, writeFallback } = await import("./src/fallback");
-const { read, write, tk2k, makePair } = await import(".");
 
 test("fallback mocked", () => {
   readFallback.mockResolvedValue("test");
@@ -129,7 +129,7 @@ test("make new Anime", async () => {
   anime.title = makePair(tk2k.ANIME, "title", "新規アニメテスト");
   anime.material = makePair(tk2k.ANIME, "material", "素材テスト");
   anime.target = makePair(tk2k.ANIME, "target", 0); // 単体
-  anime.target = makePair(tk2k.ANIME, "yLine", 2); // 足元
+  anime.yLine = makePair(tk2k.ANIME, "yLine", 2); // 足元
 
   // エフェクトデータ
   const effectList = [];

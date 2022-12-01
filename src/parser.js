@@ -28,6 +28,10 @@ export function parseList(tArray, type = false) {
   let start = lengthBer.length;
 
   const result = [];
+  // 長さが1かつ、次の値が0の場合、空リストと判定する
+  if (listLength === 1 && tArray[start] === 0) {
+    return result;
+  }
   for (let i = 0; i < listLength; i++) {
     const idBer = berToIntData(tArray.slice(start));
     const id = idBer.result;

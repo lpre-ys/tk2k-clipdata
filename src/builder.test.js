@@ -33,8 +33,23 @@ test("string", () => {
 });
 
 describe("List", () => {
-  describe('has data', () => {
+  describe("has data", () => {
+    test("length is 0", () => {
+      const data = {
+        no: 1,
+        data: [],
+      };
+      const data2 = {
+        no: 2,
+        data: 42
+      }
 
+      const result = buildRawData({ 1: data, 2: data2 });
+      expect(result).toEqual([
+        ...[7, 0, 0, 0, 1, 0, 0, 0],
+        ...[1, 1, 0, 2, 1, 42, 0],
+      ]);
+    });
     test("length is 1", () => {
       const data = {
         no: 7,
@@ -87,15 +102,19 @@ describe("List", () => {
       const result = buildRawData({ 7: data });
       expect(result).toEqual([
         ...[20, 0, 0, 0, 1, 0, 0, 0],
-        ...[91, 17, 2,
+        ...[
+          91,
+          17,
+          2,
           ...[11, 21, 4, 1, 2, 3, 4, 0],
           ...[12, 22, 4, 5, 6, 7, 8, 0],
-          0],
+          0,
+        ],
       ]);
     });
   });
-  describe('has raw', () => {
-    test('length is 1', () => {
+  describe("has raw", () => {
+    test("length is 1", () => {
       const data = {
         no: 7,
         data: [
@@ -112,8 +131,8 @@ describe("List", () => {
         ...[12, 0, 0, 0, 1, 0, 0, 0],
         ...[7, 9, 1, ...[11, 21, 4, 1, 2, 3, 4, 0], 0],
       ]);
-    })
-  })
+    });
+  });
 });
 
 test("Multi Data", () => {

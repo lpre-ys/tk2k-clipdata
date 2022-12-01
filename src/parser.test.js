@@ -39,6 +39,13 @@ describe("parseObject", () => {
 });
 
 describe("parseList", () => {
+  test("length 0 list", () => {
+    // List id 1x, Object id 2x
+    const data = new Uint8Array([1, 0]);
+
+    const result = parseList(data);
+    expect(result).toHaveLength(0);
+  });
   test("length 1 list", () => {
     // List id 1x, Object id 2x
     const data = new Uint8Array([1, 11, 21, 3, 1, 2, 3, 0]);

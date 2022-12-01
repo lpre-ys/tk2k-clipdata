@@ -54,7 +54,7 @@ export function writeFallback(id, data) {
 
     child.stderr.on("data", function (data) {
       const decoder = new TextDecoder('shift-jis');
-      reject(decoder.decode(data.buffer), data);
+      reject({ text: decoder.decode(data.buffer), raw: data });
     });
 
     child.stdin.end();

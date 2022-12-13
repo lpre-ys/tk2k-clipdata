@@ -1,15 +1,15 @@
 import { berToIntData } from "./ber.js";
-import config from "./config.json";
+import { getRevHeader } from "./header.js";
 
 const HEADER_LENGTH = 8;
 
-export function parseRaw(raw, id) {
+export function parseRaw(raw, type) {
   const tArray = new Uint8Array(raw);
 
   // 実データの取得
   const dataTArray = tArray.slice(HEADER_LENGTH);
 
-  return parseObject(dataTArray, id);
+  return parseObject(dataTArray, type);
 }
 
 export function parseString(data) {
@@ -44,7 +44,7 @@ export function parseList(tArray, type = false) {
 }
 
 export function parseObject(tArray, type = false) {
-  const header = getHeader(type);
+  const header = getRevHeader(type);
   const result = {};
   let start = 0;
   while (start < tArray.length) {
@@ -71,11 +71,4 @@ export function parseObject(tArray, type = false) {
   result.length = start + 1; // 最後の0(spacer)の分足しておく
 
   return result;
-}
-
-function getHeader(type) {
-  if (type && config[type]) {
-    return config[type].header;
-  }
-  return {};
 }

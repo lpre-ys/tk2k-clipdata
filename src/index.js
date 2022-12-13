@@ -2,15 +2,17 @@ import { buildRawData } from "./builder.js";
 import { readFallback, writeFallback } from "./fallback.js";
 import { parseRaw } from "./parser.js";
 import * as parser from "./parser.js";
-import config from "./config.json";
+import { getEmptyData, getHeader, getId, getIdList } from "./header.js";
 
-export async function read(id) {
+export async function read(type) {
+  const id = getId(type);
   const raw = await readFallback(id);
 
-  return parseRaw(raw, id);
+  return parseRaw(raw, type);
 }
 
-export async function write(id, data) {
+export async function write(type, data) {
+  const id = getId(type);
   const raw = buildRawData(data);
   await writeFallback(id, raw);
 }
@@ -22,15 +24,7 @@ export function makePair(type, target, value) {
 
 export { parser };
 
-// ID list
-export const tk2k = {};
-Object.keys(config).forEach((id) => {
-  const name = config[id].name;
-  tk2k[name] = id;
-});
+export { getEmptyData };
 
-function getHeader(type) {
-  return Object.fromEntries(
-    Object.entries(config[type].header).map(([key, value]) => [value, key])
-  );
-}
+// ID list
+export const tk2k = getIdList();

@@ -1,5 +1,5 @@
 import { jest } from "@jest/globals";
-import { makePair, read, tk2k, write } from "./src";
+import { getEmptyData, makePair, read, tk2k, write } from "./src";
 import { readFallback, writeFallback } from "./src/fallback";
 import { parseList, parseBer, parseString } from "./src/parser";
 import testdata from "./testdata.json";
@@ -23,7 +23,7 @@ describe("dageki_a", () => {
     readFallback.mockResolvedValue(testdata.dageki_a);
     anime = await read(tk2k.ANIME);
 
-    expect(readFallback).lastCalledWith("582");
+    expect(readFallback).lastCalledWith(582);
   });
   test("result title is 打撃Ａ", () => {
     anime.title.data = parseString(anime.title.raw);
@@ -63,7 +63,7 @@ describe("dageki_a", () => {
 
     await write(tk2k.ANIME, anime);
 
-    expect(writeFallback).lastCalledWith("582", testdata.changed_dageki_a);
+    expect(writeFallback).lastCalledWith(582, testdata.changed_dageki_a);
   });
 });
 
@@ -73,7 +73,7 @@ describe("fire_all_a cels y up", () => {
     readFallback.mockResolvedValue(testdata.fire_all_a);
     anime = await read(tk2k.ANIME);
 
-    expect(readFallback).lastCalledWith("582");
+    expect(readFallback).lastCalledWith(582);
   });
   test("result title is 炎魔法・全Ａ", () => {
     anime.title.data = parseString(anime.title.raw);
@@ -121,55 +121,37 @@ describe("fire_all_a cels y up", () => {
 
     await write(tk2k.ANIME, anime);
 
-    expect(writeFallback).lastCalledWith("582", testdata.changed_fire_all_a);
+    expect(writeFallback).lastCalledWith(582, testdata.changed_fire_all_a);
   });
 });
 test("make new Anime", async () => {
-  const anime = {};
-  anime.title = makePair(tk2k.ANIME, "title", "新規アニメテスト");
-  anime.material = makePair(tk2k.ANIME, "material", "素材テスト");
-  anime.target = makePair(tk2k.ANIME, "target", 0); // 単体
-  anime.yLine = makePair(tk2k.ANIME, "yLine", 2); // 足元
+  const anime = getEmptyData(tk2k.ANIME);
+  anime.title.data = "新規アニメテスト";
+  anime.material.data = "素材テスト";
+  anime.target.data = 0; // 単体
+  anime.yLine.data = 2; // 足元
 
   // エフェクトデータ
   const effectList = [];
-  const effect = {
-    frame: makePair(tk2k.ANIME_EFFECT, "frame", 3),
-    area: makePair(tk2k.ANIME_EFFECT, "area", 1),
-    r: makePair(tk2k.ANIME_EFFECT, "r", 20),
-  };
-  effectList.push({ id: 1, data: effect });
-  anime.effectList = makePair(tk2k.ANIME, "effectList", effectList);
+  const effect = getEmptyData(tk2k.ANIME_EFFECT);
+  effect.frame.data = 3;
+  effect.area.data = 1;
+  effect.r.data = 20;
+  effectList.push({ data: effect });
+  anime.effectList.data = effectList;
 
   // フレームデータ
-  const celList1 = [
-    {
-      id: 1,
-      data: {
-        pattern: makePair(tk2k.ANIME_CEL, "pattern", 2),
-      },
-    },
-  ];
-  const celList2 = [
-    {
-      id: 1,
-      data: {
-        pattern: makePair(tk2k.ANIME_CEL, "pattern", 3),
-      },
-    },
-  ];
-  const frame1 = {
-    celList: makePair(tk2k.ANIME_FRAME, "celList", celList1),
-  };
-  const frame2 = {
-    celList: makePair(tk2k.ANIME_FRAME, "celList", celList2),
-  };
-  const frameList = [
-    { id: 1, data: frame1 },
-    { id: 2, data: frame2 },
-  ];
-  anime.frameList = makePair(tk2k.ANIME, "frameList", frameList);
+  const cel1 = getEmptyData(tk2k.ANIME_CEL);
+  cel1.pattern.data = 2;
+  const cel2 = getEmptyData(tk2k.ANIME_CEL);
+  cel2.pattern.data = 3;
+  const frame1 = getEmptyData(tk2k.ANIME_FRAME);
+  frame1.celList.data = [{ data: cel1 }];
+  const frame2 = getEmptyData(tk2k.ANIME_FRAME);
+  frame2.celList.data = [{ data: cel2 }];
+  const frameList = [{ data: frame1 }, { data: frame2 }];
+  anime.frameList.data = frameList;
 
   await write(tk2k.ANIME, anime);
-  expect(writeFallback).lastCalledWith("582", testdata.make_new_anime);
+  expect(writeFallback).lastCalledWith(582, testdata.make_new_anime);
 });

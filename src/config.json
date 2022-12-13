@@ -1,55 +1,55 @@
 {
-  "582": {
-    "name": "ANIME",
+  "ANIME": {
+    "id": 582,
     "header": {
-      "1": "title",
-      "2": "material",
-      "6": "effectList",
-      "9": "target",
-      "10": "yLine",
-      "12": "frameList"
+      "title": 1,
+      "material": 2,
+      "effectList": 6,
+      "target": 9,
+      "yLine": 10,
+      "frameList": 12
     }
   },
-  "570": {
-    "name": "ANIME_EFFECT",
+  "ANIME_EFFECT": {
+    "id": 570,
     "header": {
-      "1": "frame",
-      "2": "sound",
-      "3": "area",
-      "4": "r",
-      "5": "g",
-      "6": "b",
-      "7": "volume"
+      "frame": 1,
+      "sound": 2,
+      "area": 3,
+      "r": 4,
+      "g": 5,
+      "b": 6,
+      "volume": 7
     }
   },
-  "572": {
-    "name": "ANIME_FRAME",
+  "ANIME_FRAME": {
+    "id": 572,
     "header": {
-      "1": "celList"
+      "celList": 1
     }
   },
-  "573": {
-    "name": "ANIME_CEL",
+  "ANIME_CEL": {
+    "id": 573,
     "header": {
-      "1": "visible",
-      "2": "pattern",
-      "3": "x",
-      "4": "y",
-      "5": "scale",
-      "6": "r",
-      "7": "g",
-      "8": "b",
-      "9": "sat",
-      "10": "alpha"
+      "visible": 1,
+      "pattern": 2,
+      "x": 3,
+      "y": 4,
+      "scale": 5,
+      "r": 6,
+      "g": 7,
+      "b": 8,
+      "sat": 9,
+      "alpha": 10
     }
   },
-  "U001": {
-    "name": "SOUND",
+  "SOUND": {
+    "id": "U001",
     "header": {
-      "1": "file",
-      "3": "volume",
-      "4": "pitch",
-      "5": "pan"
+      "file": 1,
+      "volume": 3,
+      "pitch": 4,
+      "pan": 5
     }
   }
 }

@@ -34,8 +34,9 @@ function buildObject(input) {
       } else if (Array.isArray(data)) {
         raw = [data.length];
         // LIST
-        data.forEach((listData) => {
-          raw.push(listData.id);
+        data.forEach((listData, i) => {
+          const id = listData.id !== undefined ? listData.id : i + 1;
+          raw.push(id);
           if (listData.data) {
             raw.push(...buildObject(listData.data));
           } else {
@@ -47,6 +48,12 @@ function buildObject(input) {
         raw = buildObject(data);
       }
     }
+
+    // rawが配列ではない、または空配列の場合、スキップする
+    if (raw.length === 0) {
+      return;
+    }
+
     result.push(parseInt(no));
     result.push(...intToBer(raw.length));
     result.push(...raw);

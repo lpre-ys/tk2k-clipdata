@@ -1,0 +1,55 @@
+{
+  "582": {
+    "name": "ANIME",
+    "header": {
+      "1": "title",
+      "2": "material",
+      "6": "effectList",
+      "9": "target",
+      "10": "yLine",
+      "12": "frameList"
+    }
+  },
+  "570": {
+    "name": "ANIME_EFFECT",
+    "header": {
+      "1": "frame",
+      "2": "sound",
+      "3": "area",
+      "4": "r",
+      "5": "g",
+      "6": "b",
+      "7": "volume"
+    }
+  },
+  "572": {
+    "name": "ANIME_FRAME",
+    "header": {
+      "1": "celList"
+    }
+  },
+  "573": {
+    "name": "ANIME_CEL",
+    "header": {
+      "1": "visible",
+      "2": "pattern",
+      "3": "x",
+      "4": "y",
+      "5": "scale",
+      "6": "r",
+      "7": "g",
+      "8": "b",
+      "9": "sat",
+      "10": "alpha"
+    }
+  },
+  "U001": {
+    "name": "SOUND",
+    "header": {
+      "1": "file",
+      "3": "volume",
+      "4": "pitch",
+      "5": "pan"
+    }
+  }
+}

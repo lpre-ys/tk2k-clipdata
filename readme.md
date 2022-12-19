@@ -12,6 +12,20 @@ todo.
 
 [scenario.test.js](./scenario.test.js)
 
-## 注意
+## 動作環境
 
 ツクール本体同様、Windowsでしか動作しません。
+
+## Electronで使う場合の注意
+
+asarに含めると、fallbackが上手く行かないため、asarUnpackに本モジュールを入れてください。
+
+### 記述例
+
+```
+  "build": {
+    "asarUnpack": [
+      "node_modules/tk2k-clipdata/"
+    ],
+  }
+```

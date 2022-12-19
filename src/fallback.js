@@ -6,7 +6,8 @@ export function readFallback(id) {
     const child = spawn("powershell.exe", [
       "-ExecutionPolicy",
       "RemoteSigned",
-      path.resolve(__dirname, "../fallback/read.ps1"),
+      path.resolve(__dirname, "../fallback/read.ps1")
+        .replace('app.asar', 'app.asar.unpacked'),
       id
     ]);
 
@@ -39,7 +40,8 @@ export function writeFallback(id, data) {
     const child = spawn("powershell.exe", [
       "-ExecutionPolicy",
       "RemoteSigned",
-      path.resolve(__dirname, "../fallback/write.ps1"),
+      path.resolve(__dirname, "../fallback/write.ps1")
+        .replace('app.asar', 'app.asar.unpacked'),
       id,
       `"${data.join(',')}"`
     ]);

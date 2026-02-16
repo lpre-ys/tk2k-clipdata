@@ -19,7 +19,8 @@
       "r": 4,
       "g": 5,
       "b": 6,
-      "volume": 7
+      "volume": 7,
+      "shake": 8
     }
   },
   "ANIME_FRAME": {

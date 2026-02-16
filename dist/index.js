@@ -356,7 +356,7 @@ eval("module.exports = JSON.parse('[[\"0\",\"\\\\u0000\",128],[\"a1\",\"｡\",62
   \*************************/
 /***/ ((module) => {
 
-eval("module.exports = JSON.parse('{\"ANIME\":{\"id\":582,\"header\":{\"title\":1,\"material\":2,\"effectList\":6,\"target\":9,\"yLine\":10,\"frameList\":12}},\"ANIME_EFFECT\":{\"id\":570,\"header\":{\"frame\":1,\"sound\":2,\"area\":3,\"r\":4,\"g\":5,\"b\":6,\"volume\":7}},\"ANIME_FRAME\":{\"id\":572,\"header\":{\"celList\":1}},\"ANIME_CEL\":{\"id\":573,\"header\":{\"visible\":1,\"pattern\":2,\"x\":3,\"y\":4,\"scale\":5,\"r\":6,\"g\":7,\"b\":8,\"sat\":9,\"alpha\":10}},\"SOUND\":{\"id\":\"U001\",\"header\":{\"file\":1,\"volume\":3,\"pitch\":4,\"pan\":5}}}');\n\n//# sourceURL=webpack://Tk2kClip/./src/config.json?");
+eval("module.exports = JSON.parse('{\"ANIME\":{\"id\":582,\"header\":{\"title\":1,\"material\":2,\"effectList\":6,\"target\":9,\"yLine\":10,\"frameList\":12}},\"ANIME_EFFECT\":{\"id\":570,\"header\":{\"frame\":1,\"sound\":2,\"area\":3,\"r\":4,\"g\":5,\"b\":6,\"volume\":7,\"shake\":8}},\"ANIME_FRAME\":{\"id\":572,\"header\":{\"celList\":1}},\"ANIME_CEL\":{\"id\":573,\"header\":{\"visible\":1,\"pattern\":2,\"x\":3,\"y\":4,\"scale\":5,\"r\":6,\"g\":7,\"b\":8,\"sat\":9,\"alpha\":10}},\"SOUND\":{\"id\":\"U001\",\"header\":{\"file\":1,\"volume\":3,\"pitch\":4,\"pan\":5}}}');\n\n//# sourceURL=webpack://Tk2kClip/./src/config.json?");
 
 /***/ })
 

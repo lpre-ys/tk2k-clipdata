@@ -42,8 +42,7 @@ export function writeFallback(id, data) {
       "RemoteSigned",
       path.resolve(__dirname, "../fallback/write.ps1")
         .replace('app.asar', 'app.asar.unpacked'),
-      id,
-      `"${data.join(',')}"`
+      id
     ]);
 
     child.on("exit", (code) => {
@@ -59,6 +58,7 @@ export function writeFallback(id, data) {
       reject({ text: decoder.decode(data.buffer), raw: data });
     });
 
+    child.stdin.write(data.join(','));
     child.stdin.end();
   });
 }

@@ -1,6 +1,6 @@
 {
   "name": "tk2k-clipdata",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Clipboard read/write library for RPG Maker 2000.",
   "main": "dist/index.js",
   "scripts": {

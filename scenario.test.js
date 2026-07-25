@@ -23,7 +23,7 @@ describe("dageki_a", () => {
     readFallback.mockResolvedValue(testdata.dageki_a);
     anime = await read(tk2k.ANIME);
 
-    expect(readFallback).lastCalledWith(582);
+    expect(readFallback).toHaveBeenLastCalledWith(582);
   });
   test("result title is 打撃Ａ", () => {
     anime.title.data = parseString(anime.title.raw);
@@ -63,7 +63,7 @@ describe("dageki_a", () => {
 
     await write(tk2k.ANIME, anime);
 
-    expect(writeFallback).lastCalledWith(582, testdata.changed_dageki_a);
+    expect(writeFallback).toHaveBeenLastCalledWith(582, testdata.changed_dageki_a);
   });
 });
 
@@ -73,7 +73,7 @@ describe("fire_all_a cels y up", () => {
     readFallback.mockResolvedValue(testdata.fire_all_a);
     anime = await read(tk2k.ANIME);
 
-    expect(readFallback).lastCalledWith(582);
+    expect(readFallback).toHaveBeenLastCalledWith(582);
   });
   test("result title is 炎魔法・全Ａ", () => {
     anime.title.data = parseString(anime.title.raw);
@@ -121,7 +121,7 @@ describe("fire_all_a cels y up", () => {
 
     await write(tk2k.ANIME, anime);
 
-    expect(writeFallback).lastCalledWith(582, testdata.changed_fire_all_a);
+    expect(writeFallback).toHaveBeenLastCalledWith(582, testdata.changed_fire_all_a);
   });
 });
 test("make new Anime", async () => {
@@ -153,5 +153,5 @@ test("make new Anime", async () => {
   anime.frameList.data = frameList;
 
   await write(tk2k.ANIME, anime);
-  expect(writeFallback).lastCalledWith(582, testdata.make_new_anime);
+  expect(writeFallback).toHaveBeenLastCalledWith(582, testdata.make_new_anime);
 });

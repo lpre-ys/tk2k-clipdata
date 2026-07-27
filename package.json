@@ -19,7 +19,7 @@
     "babel-jest": "^30.4.1",
     "babel-loader": "^10.1.1",
     "cross-env": "^10.1.0",
-    "eslint": "^8.28.0",
+    "eslint": "^10.8.0",
     "eslint-plugin-jest": "^29.16.0",
     "jest": "^30.4.2",
     "webpack": "^5.109.0",
